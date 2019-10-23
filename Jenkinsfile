@@ -6,27 +6,40 @@ pipeline {
 
     stages {
         stage('checkout') {
-            echo 'Checking out scm'
-            checkout scm
+            steps {
+                echo 'Checking out scm'
+                checkout scm
+            }
+
         }
 
         stage('build') {
-            echo 'Building project'
-            sh './mvnw install'
+            steps {
+                echo 'Building project'
+                sh './mvnw install'
+            }
         }
 
         stage('test') {
-            echo 'Testing'
-            sh './mvnw test'
+            steps {
+                echo 'Testing'
+                sh './mvnw test'
+            }
+
         }
 
         stage('package') {
-            echo 'Packaging'
-            sh './mvnw package'
+            steps {
+                echo 'Packaging'
+                sh './mvnw package'
+            }
         }
 
         stage('cleanup') {
-            echo 'Done'
+            steps {
+                echo 'Done'
+            }
+
         }
     }
 
